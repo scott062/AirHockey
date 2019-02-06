@@ -16,9 +16,15 @@
       var ctx = canvas.getContext("2d");
       var x = canvas.width / 2
       var y = canvas.height / 2
-      var dx = 3;
-      var dy = -3;
-      var puckRadius = 10;
+      var dx = 2.25;
+      var dy = -2.25;
+      var puckRadius = 5;
+
+      var goalOneHeight = 70;
+      var goalOneWidth = 3
+
+      var goalTwoHeight = 70;
+      var goalTwoWidth = 3;
 
       var blockerOneHeight = 45;
       var blockerOneWidth = 10;
@@ -96,6 +102,24 @@
         ctx.closePath();
       }
 
+      function drawGoalOne() {
+        ctx.beginPath();
+        ctx.rect(0, (canvas.height - goalOneHeight) / 2, goalOneWidth, goalOneHeight);
+        ctx.fillStyle = "lightblue";
+        ctx.fill();
+        ctx.closePath();
+      }
+
+      function drawGoalTwo() {
+        ctx.beginPath();
+        ctx.rect(canvas.width - goalTwoWidth, (canvas.height - goalTwoHeight) / 2, goalTwoWidth, goalTwoHeight);
+        ctx.fillStyle = "lightblue";
+        ctx.fill();
+        ctx.closePath();
+      }
+
+
+
       function drawBlockerOne() {
         ctx.beginPath();
         ctx.rect(blockerOneX, blockerOneY, blockerOneWidth, blockerOneHeight )
@@ -115,6 +139,8 @@
       function draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawPuck();
+        drawGoalOne();
+        drawGoalTwo();
         drawBlockerOne();
         drawBlockerTwo();
 
@@ -126,23 +152,23 @@
         }
 
         if (upOnePressed && blockerOneY > 0) {
-          blockerOneY -= 7;
+          blockerOneY -= 4;
         } else if (downOnePressed && blockerOneY < canvas.height - blockerOneHeight) {
-          blockerOneY +=7;
+          blockerOneY +=4;
         } else if (leftOnePressed && blockerOneX > 0) {
-          blockerOneX -=7;
+          blockerOneX -=4;
         } else if (rightOnePressed && blockerOneX < (canvas.width / 2) - blockerOneWidth) {
-          blockerOneX += 7;
+          blockerOneX += 4;
         }
 
         if (upTwoPressed && blockerTwoY > 0) {
-          blockerTwoY -= 7;
+          blockerTwoY -= 4;
         } else if (downTwoPressed && blockerTwoY < canvas.height - blockerTwoHeight) {
-          blockerTwoY +=7;
+          blockerTwoY +=4;
         } else if (leftTwoPressed && blockerTwoX > (canvas.width / 2) + blockerTwoWidth) {
-          blockerTwoX -=7;
+          blockerTwoX -=4;
         } else if (rightTwoPressed && blockerTwoX < (canvas.width - blockerTwoWidth)) {
-          blockerTwoX += 7;
+          blockerTwoX += 4;
         }
 
         x += dx;
@@ -151,7 +177,7 @@
 
 
 
-      setInterval(draw, 10);
+      var interval = setInterval(draw, 10);
     </script>
 
   </body>

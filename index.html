@@ -16,23 +16,29 @@
       var ctx = canvas.getContext("2d");
       var x = canvas.width / 2
       var y = canvas.height / 2
-      var dx = 2;
-      var dy = -2;
+      var dx = 3;
+      var dy = -3;
       var puckRadius = 10;
 
       var blockerOneHeight = 45;
       var blockerOneWidth = 10;
-      var blockerOneY = (canvas.height - blockerOneHeight) / 2
+      var blockerOneY = (canvas.height - blockerOneHeight) / 2;
+      var blockerOneX = 0;
 
       var blockerTwoHeight = 45;
       var blockerTwoWidth = 10;
-      var blockerTwoY = (canvas.height - blockerTwoHeight) / 2
+      var blockerTwoY = (canvas.height - blockerTwoHeight) / 2;
+      var blockerTwoX = canvas.width - blockerTwoWidth;
 
-      var upOnePressed = false
-      var downOnePressed = false
+      var upOnePressed = false;
+      var downOnePressed = false;
+      var leftOnePressed = false;
+      var rightOnePressed = false;
 
-      var upTwoPressed = false
-      var downTwoPressed = false
+      var upTwoPressed = false;
+      var downTwoPressed = false;
+      var leftTwoPressed = false;
+      var rightTwoPressed = false;
 
       document.addEventListener("keydown", keyDownHandler, false);
       document.addEventListener("keyup", keyUpHandler, false)
@@ -42,12 +48,20 @@
           upOnePressed = true;
         } else if (e.key == "s") {
           downOnePressed = true;
+        } else if (e.key == "a") {
+          leftOnePressed = true;
+        } else if (e.key == "d") {
+          rightOnePressed = true;
         }
 
         if (e.key == "ArrowUp") {
           upTwoPressed = true;
         } else if (e.key == "ArrowDown") {
           downTwoPressed = true;
+        } else if (e.key == "ArrowLeft") {
+          leftTwoPressed = true;
+        } else if (e.key == "ArrowRight") {
+          rightTwoPressed = true;
         }
       }
 
@@ -56,12 +70,20 @@
           upOnePressed = false;
         } else if (e.key == "s") {
           downOnePressed = false;
+        } else if (e.key == "a") {
+          leftOnePressed = false;
+        } else if (e.key == "d") {
+          rightOnePressed = false;
         }
 
         if (e.key == "ArrowUp") {
           upTwoPressed = false;
         } else if (e.key == "ArrowDown") {
           downTwoPressed = false;
+        } else if (e.key == "ArrowLeft") {
+          leftTwoPressed = false;
+        } else if (e.key == "ArrowRight") {
+          rightTwoPressed = false;
         }
       }
 
@@ -76,7 +98,7 @@
 
       function drawBlockerOne() {
         ctx.beginPath();
-        ctx.rect(0, blockerOneY, blockerOneWidth, blockerOneHeight )
+        ctx.rect(blockerOneX, blockerOneY, blockerOneWidth, blockerOneHeight )
         ctx.fillStyle = "blue"
         ctx.fill();
         ctx.closePath();
@@ -84,7 +106,7 @@
 
       function drawBlockerTwo() {
         ctx.beginPath();
-        ctx.rect(canvas.width - blockerTwoWidth, blockerTwoY, blockerTwoWidth, blockerTwoHeight )
+        ctx.rect(blockerTwoX, blockerTwoY, blockerTwoWidth, blockerTwoHeight )
         ctx.fillStyle = "red"
         ctx.fill();
         ctx.closePath();
@@ -107,12 +129,20 @@
           blockerOneY -= 7;
         } else if (downOnePressed && blockerOneY < canvas.height - blockerOneHeight) {
           blockerOneY +=7;
+        } else if (leftOnePressed && blockerOneX > 0) {
+          blockerOneX -=7;
+        } else if (rightOnePressed && blockerOneX < (canvas.width / 2) - blockerOneWidth) {
+          blockerOneX += 7;
         }
 
         if (upTwoPressed && blockerTwoY > 0) {
           blockerTwoY -= 7;
         } else if (downTwoPressed && blockerTwoY < canvas.height - blockerTwoHeight) {
           blockerTwoY +=7;
+        } else if (leftTwoPressed && blockerTwoX > (canvas.width / 2) + blockerTwoWidth) {
+          blockerTwoX -=7;
+        } else if (rightTwoPressed && blockerTwoX < (canvas.width - blockerTwoWidth)) {
+          blockerTwoX += 7;
         }
 
         x += dx;

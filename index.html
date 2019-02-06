@@ -12,7 +12,76 @@
 
     <canvas id="myCanvas" width= "480" height="320"></canvas>
     <script type="text/javascript">
-      
+      var canvas = document.getElementById("myCanvas");
+      var ctx = canvas.getContext("2d");
+      var x = canvas.width / 2
+      var y = canvas.height / 2
+      var dx = 2;
+      var dy = -2;
+      var puckRadius = 10;
+
+      var blockerOneHeight = 45;
+      var blockerOneWidth = 10;
+      var blockerOneY = (canvas.height - blockerOneHeight) / 2
+
+      var blockerTwoHeight = 45;
+      var blockerTwoWidth = 10;
+      var blockerTwoY = (canvas.height - blockerTwoHeight) / 2
+
+      var upOnePressed = false
+      var downOnePressed = false
+
+      var upTwoPressed = false
+      var downTwoPressed = false
+
+      document.addEventListense
+
+
+
+      function drawPuck() {
+        ctx.beginPath();
+        ctx.arc(x, y, puckRadius, 0, Math.PI * 2);
+        ctx.fillStyle = "black";
+        ctx.fill();
+        ctx.closePath();
+      }
+
+      function drawBlockerOne() {
+        ctx.beginPath();
+        ctx.rect(0, blockerOneY, blockerOneWidth, blockerOneHeight )
+        ctx.fillStyle = "blue"
+        ctx.fill();
+        ctx.closePath();
+      }
+
+      function drawBlockerTwo() {
+        ctx.beginPath();
+        ctx.rect(canvas.width - blockerTwoWidth, blockerTwoY, blockerTwoWidth, blockerTwoHeight )
+        ctx.fillStyle = "red"
+        ctx.fill();
+        ctx.closePath();
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawPuck();
+        drawBlockerOne();
+        drawBlockerTwo();
+
+        if (x + dx > canvas.width - puckRadius || x + dx < puckRadius) {
+          dx = -dx;
+        }
+        if (y + dy > canvas.height - puckRadius || y + dy < puckRadius) {
+          dy = -dy;
+        }
+
+        x += dx;
+        y += dy;
+      }
+
+
+
+      setInterval(draw, 10);
     </script>
 
   </body>

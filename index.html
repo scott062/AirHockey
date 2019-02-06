@@ -142,10 +142,28 @@
         drawBlockerOne();
         drawBlockerTwo();
 
-        if (((x < goalOneWidth + puckRadius) || (x + puckRadius + goalTwoWidth > canvas.width)) && (y > 125 && y < 195)) {
-          alert("GAME OVER");
-          document.location.reload();
-          clearInterval(interval);
+        if (y > 125 && y < 195) {
+          if (x < goalOneWidth + puckRadius) {
+            alert("Red Scores!");
+            document.location.reload();
+            clearInterval(interval);
+          } else if (x + puckRadius + goalTwoWidth > canvas.width) {
+            alert("Blue Scores!");
+            document.location.reload();
+            clearInterval(interval);
+          }
+        }
+
+        if (x + dx < blockerOneX && x + dx > blockerOneX - blockerOneWidth) {
+          if (y + dy > blockerOneY && y + dy < blockerOneY + (35)) {
+            dx = -dx;
+          }
+        }
+
+        if (x < blockerTwoX && x > blockerTwoX - blockerTwoWidth) {
+          if (y + dy > blockerTwoY && y + dy < blockerTwoY + (35)) {
+            dx = -dx;
+          }
         }
 
         if (x + dx > canvas.width - puckRadius || x + dx < puckRadius) {

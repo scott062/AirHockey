@@ -34,8 +34,36 @@
       var upTwoPressed = false
       var downTwoPressed = false
 
-      document.addEventListense
+      document.addEventListener("keydown", keyDownHandler, false);
+      document.addEventListener("keyup", keyUpHandler, false)
 
+      function keyDownHandler(e) {
+        if (e.key == "w") {
+          upOnePressed = true;
+        } else if (e.key == "s") {
+          downOnePressed = true;
+        }
+
+        if (e.key == "ArrowUp") {
+          upTwoPressed = true;
+        } else if (e.key == "ArrowDown") {
+          downTwoPressed = true;
+        }
+      }
+
+      function keyUpHandler(e) {
+        if (e.key == "w") {
+          upOnePressed = false;
+        } else if (e.key == "s") {
+          downOnePressed = false;
+        }
+
+        if (e.key == "ArrowUp") {
+          upTwoPressed = false;
+        } else if (e.key == "ArrowDown") {
+          downTwoPressed = false;
+        }
+      }
 
 
       function drawPuck() {
@@ -73,6 +101,18 @@
         }
         if (y + dy > canvas.height - puckRadius || y + dy < puckRadius) {
           dy = -dy;
+        }
+
+        if (upOnePressed) {
+          blockerOneY -= 7;
+        } else if (downOnePressed) {
+          blockerOneY +=7;
+        }
+
+        if (upTwoPressed) {
+          blockerTwoY -= 7;
+        } else if (downTwoPressed) {
+          blockerTwoY +=7;
         }
 
         x += dx;

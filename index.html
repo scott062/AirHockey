@@ -118,8 +118,6 @@
         ctx.closePath();
       }
 
-
-
       function drawBlockerOne() {
         ctx.beginPath();
         ctx.rect(blockerOneX, blockerOneY, blockerOneWidth, blockerOneHeight )
@@ -143,6 +141,12 @@
         drawGoalTwo();
         drawBlockerOne();
         drawBlockerTwo();
+
+        if ((x < goalOneWidth + puckRadius) || (x + puckRadius > canvas.width - goalTwoWidth)) {
+          alert("GAME OVER");
+          document.location.reload();
+          clearInterval(interval);
+        }
 
         if (x + dx > canvas.width - puckRadius || x + dx < puckRadius) {
           dx = -dx;

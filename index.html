@@ -142,7 +142,7 @@
         drawBlockerOne();
         drawBlockerTwo();
 
-        if (((x < goalOneWidth + puckRadius) || (x + puckRadius > canvas.width - goalTwoWidth)) && (y > 125 && y < 195)) {
+        if (((x < goalOneWidth + puckRadius) || (x + puckRadius + goalTwoWidth > canvas.width)) && (y > 125 && y < 195)) {
           alert("GAME OVER");
           document.location.reload();
           clearInterval(interval);

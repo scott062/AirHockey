@@ -103,15 +103,15 @@
           dy = -dy;
         }
 
-        if (upOnePressed) {
+        if (upOnePressed && blockerOneY > 0) {
           blockerOneY -= 7;
-        } else if (downOnePressed) {
+        } else if (downOnePressed && blockerOneY < canvas.height - blockerOneHeight) {
           blockerOneY +=7;
         }
 
-        if (upTwoPressed) {
+        if (upTwoPressed && blockerTwoY > 0) {
           blockerTwoY -= 7;
-        } else if (downTwoPressed) {
+        } else if (downTwoPressed && blockerTwoY < canvas.height - blockerTwoHeight) {
           blockerTwoY +=7;
         }
 

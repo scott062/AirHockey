@@ -24,8 +24,8 @@
       var ctx = canvas.getContext("2d");
       var x = canvas.width / 2
       var y = canvas.height / 2
-      var dx = 2.25;
-      var dy = -2.25;
+      var dx = 1.125;
+      var dy = -1.125;
       var puckRadius = 5;
 
       var goalOneHeight = 70;
@@ -181,23 +181,23 @@
         }
 
         if (upOnePressed && blockerOneY > 0) {
-          blockerOneY -= 4;
+          blockerOneY -= 2;
         } else if (downOnePressed && blockerOneY < canvas.height - blockerOneHeight) {
-          blockerOneY +=4;
+          blockerOneY += 2;
         } else if (leftOnePressed && blockerOneX > 0) {
-          blockerOneX -=4;
+          blockerOneX -= 2;
         } else if (rightOnePressed && blockerOneX < (canvas.width / 2) - blockerOneWidth) {
-          blockerOneX += 4;
+          blockerOneX += 2;
         }
 
         if (upTwoPressed && blockerTwoY > 0) {
-          blockerTwoY -= 4;
+          blockerTwoY -= 2;
         } else if (downTwoPressed && blockerTwoY < canvas.height - blockerTwoHeight) {
-          blockerTwoY +=4;
+          blockerTwoY += 2;
         } else if (leftTwoPressed && blockerTwoX > (canvas.width / 2) + blockerTwoWidth) {
-          blockerTwoX -=4;
+          blockerTwoX -= 2;
         } else if (rightTwoPressed && blockerTwoX < (canvas.width - blockerTwoWidth)) {
-          blockerTwoX += 4;
+          blockerTwoX += 2;
         }
 
         x += dx;
@@ -206,7 +206,7 @@
 
 
 
-      var interval = setInterval(draw, 10);
+      var interval = setInterval(draw, 2);
     </script>
     <h2>HOW TO PLAY</h2>
     <p>Be the first player to hit the puck into the opponent's goal. Use the

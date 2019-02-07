@@ -6,10 +6,18 @@
     <style>
       * { padding: 0; margin: 0; }
       canvas { background: #eee; display: block; margin: 0 auto }
+      h1 {
+        font-family: 'Bungee Shade', cursive;
+      }
+      h2, h3 {
+        font-family: 'Bungee', cursive;
+      }
     </style>
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Shade" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
   </head>
   <body>
-
+    <h1>Air Hockey</h1>
     <canvas id="myCanvas" width= "480" height="320"></canvas>
     <script type="text/javascript">
       var canvas = document.getElementById("myCanvas");
@@ -92,7 +100,6 @@
           rightTwoPressed = false;
         }
       }
-
 
       function drawPuck() {
         ctx.beginPath();
@@ -201,6 +208,13 @@
 
       var interval = setInterval(draw, 10);
     </script>
+    <h2>HOW TO PLAY</h2>
+    <p>Be the first player to hit the puck into the opponent's goal. Use the
+      following controls to position your blocker in order to bounce the puck
+      towards your opponent's goal.</p>
+    <h3>Blue Player Controls</h3>
 
+    <h3>Red Player Contorls</h3>
+    <img src="./img/keyboard_keys.png"/>
   </body>
 </html>

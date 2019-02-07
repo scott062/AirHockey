@@ -20,39 +20,39 @@
     <h1>Air Hockey</h1>
     <canvas id="myCanvas" width= "480" height="320"></canvas>
     <script type="text/javascript">
-      var canvas = document.getElementById("myCanvas");
-      var ctx = canvas.getContext("2d");
-      var x = canvas.width / 2
-      var y = canvas.height / 2
-      var dx = 1.125;
-      var dy = -1.125;
-      var puckRadius = 5;
+      const canvas = document.getElementById("myCanvas");
+      const ctx = canvas.getContext("2d");
+      let x = canvas.width / 2
+      let y = canvas.height / 2
+      let dx = 1.125;
+      let dy = -1.125;
+      let puckRadius = 5;
 
-      var goalOneHeight = 70;
-      var goalOneWidth = 3
+      let goalOneHeight = 70;
+      let goalOneWidth = 3
 
-      var goalTwoHeight = 70;
-      var goalTwoWidth = 3;
+      let goalTwoHeight = 70;
+      let goalTwoWidth = 3;
 
-      var blockerOneHeight = 45;
-      var blockerOneWidth = 10;
-      var blockerOneY = (canvas.height - blockerOneHeight) / 2;
-      var blockerOneX = 0;
+      let blockerOneHeight = 45;
+      let blockerOneWidth = 10;
+      let blockerOneY = (canvas.height - blockerOneHeight) / 2;
+      let blockerOneX = 0;
 
-      var blockerTwoHeight = 45;
-      var blockerTwoWidth = 10;
-      var blockerTwoY = (canvas.height - blockerTwoHeight) / 2;
-      var blockerTwoX = canvas.width - blockerTwoWidth;
+      let blockerTwoHeight = 45;
+      let blockerTwoWidth = 10;
+      let blockerTwoY = (canvas.height - blockerTwoHeight) / 2;
+      let blockerTwoX = canvas.width - blockerTwoWidth;
 
-      var upOnePressed = false;
-      var downOnePressed = false;
-      var leftOnePressed = false;
-      var rightOnePressed = false;
+      let upOnePressed = false;
+      let downOnePressed = false;
+      let leftOnePressed = false;
+      let rightOnePressed = false;
 
-      var upTwoPressed = false;
-      var downTwoPressed = false;
-      var leftTwoPressed = false;
-      var rightTwoPressed = false;
+      let upTwoPressed = false;
+      let downTwoPressed = false;
+      let leftTwoPressed = false;
+      let rightTwoPressed = false;
 
       document.addEventListener("keydown", keyDownHandler, false);
       document.addEventListener("keyup", keyUpHandler, false)
@@ -161,8 +161,8 @@
           }
         }
 
-        if (x + dx < blockerOneX && x + dx > blockerOneX - blockerOneWidth) {
-          if (y + dy > blockerOneY && y + dy < blockerOneY + (35)) {
+        if (((x + dx) >= blockerOneX) && ((x + dx) <= (blockerOneX + blockerOneWidth))) {
+          if (((y + dy) <= blockerOneY) && ((y + dy) >= blockerOneY - blockerOneHeight)) {
             dx = -dx;
           }
         }
@@ -206,7 +206,7 @@
 
 
 
-      var interval = setInterval(draw, 2);
+      let interval = setInterval(draw, 2);
     </script>
     <h2>HOW TO PLAY</h2>
     <p>Be the first player to hit the puck into the opponent's goal. Use the

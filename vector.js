@@ -1,6 +1,7 @@
 class Vector {
-  constructor(a) {
-    this.a = a;
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
   }
 
   add(a, b) {
@@ -24,7 +25,7 @@ class Vector {
   }
 
   rotation(a, b) {
-    
+
   }
 
 }

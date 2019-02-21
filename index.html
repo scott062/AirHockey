@@ -25,7 +25,7 @@
       let x = canvas.width / 2
       let y = canvas.height / 2
       let dx = 1;
-      let dy = -1;
+      let dy = -0.5;
       let puckRadius = 6;
 
       let goalOneHeight = 70;
@@ -161,8 +161,8 @@
           }
         }
 
-        if (((x + dx - puckRadius) >= blockerOneX) && ((x + dx - puckRadius) <= (blockerOneX + blockerOneWidth))) {
-          if (((y + dy) <= blockerOneY) && ((y + dy) >= blockerOneY - blockerOneHeight)) {
+        if (((x) >= blockerOneX) && ((x + dx - puckRadius) <= (blockerOneX + blockerOneWidth))) {
+          if (((y + dy) > blockerOneY) && ((y + dy) <= blockerOneY + blockerOneHeight)) {
             dx = -dx;
           }
         }

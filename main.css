@@ -20,8 +20,25 @@ canvas {
 
 h1 {
   font-family: 'Bungee Shade', cursive;
+  font-size: 54px;
+  text-align: center;
 }
 
 h2, h3 {
   font-family: 'Bungee', cursive;
+  display: inline-block;
+  font-size: 24px;
+}
+
+img {
+  display: block;
+  align-self: center;
+}
+
+p {
+  display: block;
+  align-self: center;
+  font-family: 'Bungee', cursive;
+  font-size: 16px;
+  max-width: 50em;
 }

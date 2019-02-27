@@ -173,23 +173,23 @@
         }
 
         if (upOnePressed && blockerOneY > 0) {
-          blockerOneY -= 2;
+          blockerOneY -= 1;
         } else if (downOnePressed && blockerOneY < canvas.height - blockerOneHeight) {
-          blockerOneY += 2;
+          blockerOneY += 1;
         } else if (leftOnePressed && blockerOneX > 0) {
-          blockerOneX -= 2;
+          blockerOneX -= 1;
         } else if (rightOnePressed && blockerOneX < (canvas.width / 2) - blockerOneWidth) {
-          blockerOneX += 2;
+          blockerOneX += 1;
         }
 
         if (upTwoPressed && blockerTwoY > 0) {
-          blockerTwoY -= 2;
+          blockerTwoY -= 1;
         } else if (downTwoPressed && blockerTwoY < canvas.height - blockerTwoHeight) {
-          blockerTwoY += 2;
+          blockerTwoY += 1;
         } else if (leftTwoPressed && blockerTwoX > (canvas.width / 2) + blockerTwoWidth) {
-          blockerTwoX -= 2;
+          blockerTwoX -= 1;
         } else if (rightTwoPressed && blockerTwoX < (canvas.width - blockerTwoWidth)) {
-          blockerTwoX += 2;
+          blockerTwoX += 1;
         }
 
         x += dx;
@@ -204,9 +204,9 @@
     <p>Be the first player to hit the puck into the opponent's goal. Use the
       following controls to position your blocker in order to bounce the puck
       towards your opponent's goal.</p>
-    <h3>Blue Player Controls</h3>
+    <h3>Blue Controls</h3>
 
-    <h3>Red Player Contorls</h3>
+    <h3>Red Controls</h3>
     <img src="./img/keyboard_keys.png"/>
   </body>
 </html>
